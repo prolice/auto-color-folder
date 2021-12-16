@@ -1,0 +1,1 @@
+# auto-color-folder
