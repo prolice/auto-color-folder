@@ -12,7 +12,7 @@
 	],
   "styles": [],
   "packs": [],
-  "scripts": ["./color-folder.js"],
+  "scripts": ["./autoColorFolder.js"],
   "languages": [
     {
       "lang": "en",
