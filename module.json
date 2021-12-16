@@ -1,5 +1,5 @@
 {
-  "name": "color-folder",
+  "name": "autoColorFolder",
   "title": "Auto Colorize Folder",
   "description": "Auto Colorize Folder module 0.0.1",
   "version": "0.0.1",
@@ -10,7 +10,6 @@
 			"discord": "Prolice#9101"
 		}
 	],
-  "system": [],
   "styles": [],
   "packs": [],
   "scripts": ["./color-folder.js"],
