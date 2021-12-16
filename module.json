@@ -10,7 +10,8 @@
 			"discord": "Prolice#9101"
 		}
 	],
-  "styles": [],
+  "esmodules": ["./lib/colorsettings/colorSetting.js"],
+  "styles": [ ".css/autoColorFolder.css" ],
   "packs": [],
   "scripts": ["./autoColorFolder.js"],
   "languages": [
@@ -25,7 +26,13 @@
       "path": "lang/fr.json"
     }
   ],
-  "dependencies": [],
+  "dependencies": [
+        {
+            "name": "colorsettings",
+            "type": "module",
+            "manifest": "https://raw.githubusercontent.com/ardittristan/VTTColorSettings/master/module.json"
+        }
+    ],
   "socket": false,
   "minimumCoreVersion": "0.8.9",
   "compatibleCoreVersion": "0.8.9",

@@ -1,4 +1,3 @@
-"use strict";
 
 class autoColorFolder {
 	
@@ -27,8 +26,6 @@ class autoColorFolder {
             default: false,
             type: Boolean,
         });
-		
-		this.switchStyleSheet();
 
     }
 		
@@ -59,6 +56,11 @@ class autoColorFolder {
 		return interpolatedColorArray;
 	}
 	
+	static LightenDarkenColor(col, amt) {
+	  col = parseInt(col, 16);
+	  return (((col & 0x0000FF) + amt) | ((((col >> 8) & 0x00FF) + amt) << 8) | (((col >> 16) + amt) << 16)).toString(16);
+	}
+	
 	static AutoColorFolders (red, green, blue, max, htmlarray){
 		let boolRed = red != -1;
 		let boolGreen = green != -1;
@@ -78,8 +80,43 @@ class autoColorFolder {
 		}
 		return;
 	}
+	
+	static alphabetPosition(text) {
+	  text.split(' ').join('');
+	  var chari = "";
+	  var arr = [];
+	  var alphabet = "abcdefghijklmnopqrstuvwxyz".split('');
+	  for(var i = 0; i < text.length; i++){
+		chari = text.charAt(i).toLowerCase();
+		if(alphabet.indexOf(chari) > -1){
+		  arr.push(alphabet.indexOf(chari));
+		}
+	  }
+	  return arr;
+	}
+	
+	static ColorFoldersByInitialLetter (htmlarray){
+		for(const dirItem of htmlarray){
+			if (dirItem.children[0].attributes.style){
+				//let letterCode = dirItem.children[0].querySelector('h3').textContent[0].charCodeAt(0);
+				let lowerCaseTitle = dirItem.children[0].querySelector('h3').textContent[0].toLowerCase();
+				let letterCode = autoColorFolder.alphabetPosition(lowerCaseTitle);
+				let rgbColorRange = 0xFFFFFF;
+				let letterBasisColor = (rgbColorRange / 26 /*Number of alphabet letters*/);
+				let strLetterBasisColor = 0;
+				if (letterCode.length > 0)
+					strLetterBasisColor = autoColorFolder.LightenDarkenColor(Math.floor(((letterCode[0]-1) * letterBasisColor)).toString(16),20);
+				//let strLetterBasisColor = PIXI.utils.string2hex(letterBasisColor);
+				//dirItem.children[0].attributes.style.nodeValue = 'background-color: rgb('+letterCode+',0,0,0.5)';
+				dirItem.children[0].attributes.style.nodeValue = 'background-color: #'+strLetterBasisColor+'80';
+			}
+		}
+		
+		return;
+	}
 
 }
+
 
 
 Hooks.once("init", async function () {
@@ -87,96 +124,116 @@ Hooks.once("init", async function () {
     CONFIG.debug.hooks = false;
 	
 	game.settings.register('autoColorFolder', 'autoColorFolder', {
-        name: game.i18n.localize('AUTOCOLORFOLDER.autocolorfolder'),
-        hint: game.i18n.localize('AUTOCOLORFOLDER.autocolorfolderHint'),
-        scope: 'client',
-        type: Boolean,
-        default: true,
-        config: true,
-        onChange: () => {
-            location.reload();
-        },
-    });
+		name: game.i18n.localize('AUTOCOLORFOLDER.autocolorfolder'),
+		hint: game.i18n.localize('AUTOCOLORFOLDER.autocolorfolderHint'),
+		scope: 'client',
+		type: Boolean,
+		default: true,
+		config: true,
+		onChange: () => {
+			location.reload();
+		},
+	});	
+	
+	new window.Ardittristan.ColorSetting("autoColorFolder", "sceneDirectoryMainColor", {
+		name: "Scene Directory Start Color",           // The name of the setting in the settings menu
+		hint: "Define start color on scene directories for gradient.",        // A description of the registered setting and its behavior
+		label: game.i18n.localize('AUTOCOLORFOLDER.colorPicker'),              // The text label used in the button
+		restricted: false,                  // Restrict this setting to gamemaster only?
+		defaultColor: "#000000FF",          // The default color of the setting
+		scope: "client",                    // The scope of the setting
+		onChange: (value) => {location.reload();},  			// A callback function which triggers when the setting is changed
+		insertAfter: "autoColorFolder.autoColorFolder"
+	});		
+
+	new window.Ardittristan.ColorSetting("autoColorFolder", "actorDirectoryMainColor", {
+		name: "Actor Directory Start Color",           // The name of the setting in the settings menu
+		hint: "Define start color on actor directories for gradient.",        // A description of the registered setting and its behavior
+		label: game.i18n.localize('AUTOCOLORFOLDER.colorPicker'),              // The text label used in the button
+		restricted: false,                  // Restrict this setting to gamemaster only?
+		defaultColor: "#640000FF",          // The default color of the setting
+		scope: "client",                    // The scope of the setting
+		onChange: (value) => {location.reload();},             // A callback function which triggers when the setting is changed
+		insertAfter: "autoColorFolder.sceneDirectoryMainColor"
+	});
+	
+	new window.Ardittristan.ColorSetting("autoColorFolder", "itemDirectoryMainColor", {
+		name: "Item Directory Start Color",           // The name of the setting in the settings menu
+		hint: "Define start color on item directories for gradient.",        // A description of the registered setting and its behavior
+		label: game.i18n.localize('AUTOCOLORFOLDER.colorPicker'),              // The text label used in the button
+		restricted: false,                  // Restrict this setting to gamemaster only?
+		defaultColor: "#000032FF",          // The default color of the setting
+		scope: "client",                    // The scope of the setting
+		onChange: (value) => {location.reload();},             // A callback function which triggers when the setting is changed
+		insertAfter: "autoColorFolder.actorDirectoryMainColor"
+	});		
+	
+	new window.Ardittristan.ColorSetting("autoColorFolder", "journalDirectoryMainColor", {
+		name: "Journal Directory Start Color",           // The name of the setting in the settings menu
+		hint: "Define start color on journal directories for gradient.",        // A description of the registered setting and its behavior
+		label: game.i18n.localize('AUTOCOLORFOLDER.colorPicker'),              // The text label used in the button
+		restricted: false,                  // Restrict this setting to gamemaster only?
+		defaultColor: "#003399FF",          // The default color of the setting
+		scope: "client",                    // The scope of the setting
+		onChange: (value) => {location.reload();},             // A callback function which triggers when the setting is changed
+		insertAfter: "autoColorFolder.itemDirectoryMainColor"
+	});
 });
 
 Hooks.on("ready", () => {
-    autoColorFolder.singleton = new autoColorFolder();
+    
+	try{window.Ardittristan.ColorSetting.tester} catch {
+        ui.notifications.notify('Please make sure you have the "lib - ColorSettings" module installed and enabled.', "error");
+    }
+	
+	autoColorFolder.singleton = new autoColorFolder();
     autoColorFolder.singleton.init();
 });
 
-/*Hooks.on("renderSidebarTab", async (object, html) => {
-  if (object instanceof Settings) {
-    const details = html.find("#game-details");
-    const swffgUIDetails = document.createElement("li");
-    swffgUIDetails.classList.add("donation-link");
-    //let swffgUiVersion = game.i18n.localize('SWFFG.Version');
-	let swffgUiVersion = game.modules.get("swffgUI-cc").data.version
-	let swffgUiDonate = game.i18n.localize('SWFFG.donate');
-	let swffgUiThemeMaintenance = game.i18n.localize('SWFFG.thememaintenance');
-    let swffgUiReportThemeIssue = game.i18n.localize('SWFFG.reportthemeissue');
-	swffgUIDetails.innerHTML = "Star Wars UI (CC)<a style='animation: textShadow 1.6s infinite;' title='"+swffgUiDonate+"' href='https://ko-fi.com/prolice1403'><img src='https://storage.ko-fi.com/cdn/cup-border.png'></a><span style='font-size:var(--major-button-font-size);'>"+swffgUiVersion+"</span>";
-    details.append(swffgUIDetails);
-	
-	this.section = document.createElement("section");
-	this.section.classList.add("swffgui-maintenance");
-	// Add menu before directory header
-	const dirHeader = html[0].querySelector("#settings-game").nextSibling;
-	dirHeader.parentNode.insertBefore(this.section, dirHeader);
-
-	//if (this.data !== undefined) 
-		section.insertAdjacentHTML(
-		  "afterbegin",
-		  `
-		  <h2>`+swffgUiThemeMaintenance+`</h2>
-		  <button class="swffgui-maintenance" onclick="window.open('https://github.com/prolice/swffgUI-cc/issues','_blank')"><i class="fas fa-paint-roller"></i>`+swffgUiReportThemeIssue+`</button>`
-		);
-	
-  }
-});*/
-
 Hooks.on("renderActorDirectory", (app, html, data) => {
-	const dirHeader = html[0].querySelector(".directory-header");
-	dirHeader.parentNode.insertBefore(this.section, dirHeader);
+	let actorStartColor = game.settings.get("autoColorFolder", "actorDirectoryMainColor").slice(0, -2); // Returns color code, eg: "#000000ff"
+	let rgbActorStartColor = PIXI.utils.hex2rgb(PIXI.utils.string2hex(actorStartColor));
 	
-	if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
+	/*if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
 		const dirlist = html[0].querySelector("ol.directory-list");
-		autoColorFolder.AutoColorFolders(100,-1,-1,255,dirlist.children);
-		//autoColorFolder.AutoColorFolders(226,-1,29,255,dirlist.children);
-	}	
-
+		autoColorFolder.AutoColorFolders(rgbActorStartColor[0]*255,rgbActorStartColor[1]*255,rgbActorStartColor[2]*255,255,dirlist.children);
+	}*/
+	const dirlist = html[0].querySelector("ol.directory-list");
+	autoColorFolder.ColorFoldersByInitialLetter(dirlist.children);
 
 });
 
 Hooks.on("renderSceneDirectory", (app, html, data) => {
-	const dirHeader = html[0].querySelector(".directory-header");
-	dirHeader.parentNode.insertBefore(this.section, dirHeader);
-    
-	if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
-		const dirlist = html[0].querySelector("ol.directory-list");
-		autoColorFolder.AutoColorFolders(0,0,0,150,dirlist.children);
-	}
-
-});
-
-
-Hooks.on("renderJournalDirectory", (app, html, data) => {
-	const dirHeader = html[0].querySelector(".directory-header");
-	dirHeader.parentNode.insertBefore(this.section, dirHeader);
+	let actorStartColor = game.settings.get("autoColorFolder", "sceneDirectoryMainColor").slice(0, -2); // Returns color code, eg: "#000000ff"
+	let rgbActorStartColor = PIXI.utils.hex2rgb(PIXI.utils.string2hex(actorStartColor));
 	
 	if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
 		const dirlist = html[0].querySelector("ol.directory-list");
-		autoColorFolder.AutoColorFolders(-1,51,153,255,dirlist.children);
+		autoColorFolder.AutoColorFolders(rgbActorStartColor[0]*255,rgbActorStartColor[1]*255,rgbActorStartColor[2]*255,255,dirlist.children);
+		//autoColorFolder.AutoColorFolders(0,0,0,150,dirlist.children);
+	}
+});
+
+Hooks.on("renderJournalDirectory", (app, html, data) => {
+	let actorStartColor = game.settings.get("autoColorFolder", "journalDirectoryMainColor").slice(0, -2); // Returns color code, eg: "#000000ff"
+	let rgbActorStartColor = PIXI.utils.hex2rgb(PIXI.utils.string2hex(actorStartColor));
+	
+	if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
+		const dirlist = html[0].querySelector("ol.directory-list");
+		autoColorFolder.AutoColorFolders(rgbActorStartColor[0]*255,rgbActorStartColor[1]*255,rgbActorStartColor[2]*255,255,dirlist.children);
+		//autoColorFolder.AutoColorFolders(0,0,0,150,dirlist.children);
 	}
 });
 
 Hooks.on("renderItemDirectory", (app, html, data) => {
-	const dirHeader = html[0].querySelector(".directory-header");
-	dirHeader.parentNode.insertBefore(this.section, dirHeader);
+	let actorStartColor = game.settings.get("autoColorFolder", "itemDirectoryMainColor").slice(0, -2); // Returns color code, eg: "#000000ff"
+	let rgbActorStartColor = PIXI.utils.hex2rgb(PIXI.utils.string2hex(actorStartColor));
 	
 	if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
 		const dirlist = html[0].querySelector("ol.directory-list");
-		autoColorFolder.AutoColorFolders(-1,-1,50,255,dirlist.children);
-	}	
+		autoColorFolder.AutoColorFolders(rgbActorStartColor[0]*255,rgbActorStartColor[1]*255,rgbActorStartColor[2]*255,255,dirlist.children);
+		//autoColorFolder.AutoColorFolders(0,0,0,150,dirlist.children);
+	}
 });
 
 

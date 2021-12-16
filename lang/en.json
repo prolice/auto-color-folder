@@ -1,4 +1,5 @@
 {
   "AUTOCOLORFOLDER.autocolorfolder": "Force gradient folder color.",
-  "AUTOCOLORFOLDER.autocolorfolderHint": "Colorize folders (level#1) with a single gradient color"
+  "AUTOCOLORFOLDER.autocolorfolderHint": "Colorize folders (level#1) with a single gradient color",
+  "AUTOCOLORFOLDER.colorPicker": "Color Picker"
 }

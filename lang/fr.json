@@ -1,4 +1,5 @@
 {
   "AUTOCOLORFOLDER.autocolorfolder": "Coloriser mes dossiers en dégradé.",
-  "AUTOCOLORFOLDER.autocolorfolderHint": "Permet de coloriser les dossiers Acteurs, Scènes, ... avec un dégradé de couleur unique"
+  "AUTOCOLORFOLDER.autocolorfolderHint": "Permet de coloriser les dossiers Acteurs, Scènes, ... avec un dégradé de couleur unique",
+  "AUTOCOLORFOLDER.colorPicker": "Sélecteur de couleur..."
 }
