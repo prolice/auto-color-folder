@@ -36,7 +36,7 @@
   "readme": "https://github.com/prolice/auto-color-folder/blob/release/README.md",
   "changelog": "https://github.com/prolice/auto-color-folder/blob/release/changelog.md",
   "manifest": "https://raw.githubusercontent.com/prolice/auto-color-folder/release/module.json",
-  "download": "https://github.com/prolice/release/archive/v0.0.1.zip",
+  "download": "https://github.com/prolice/auto-color-folder/archive/refs/tags/v0.0.1.zip",
   "flags": {
 		"allowBugReporter": true
 	},
