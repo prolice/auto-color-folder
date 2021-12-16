@@ -2,7 +2,7 @@
 ## Auto Color Folder Module
 * **Licences**:
 
-![](https://github.com/prolice/swffgUI-cc/blob/swffgUI-cc/cc-by.svg)
+![MIT LICENSE](https://raw.githubusercontent.com/prolice/auto-color-folder/release/LICENSE)
 
 * **Author**: Prolice#9101
 * **Version**: ![](https://img.shields.io/badge/auto-color-folder-v0.0.1-green)
