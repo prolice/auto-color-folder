@@ -138,7 +138,7 @@ Hooks.on("renderActorDirectory", (app, html, data) => {
 	const dirHeader = html[0].querySelector(".directory-header");
 	dirHeader.parentNode.insertBefore(this.section, dirHeader);
 	
-	if (game.settings.get('swffgUI-cc', 'autoColorFolder')) {
+	if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
 		const dirlist = html[0].querySelector("ol.directory-list");
 		autoColorFolder.AutoColorFolders(100,-1,-1,255,dirlist.children);
 		//autoColorFolder.AutoColorFolders(226,-1,29,255,dirlist.children);
@@ -151,7 +151,7 @@ Hooks.on("renderSceneDirectory", (app, html, data) => {
 	const dirHeader = html[0].querySelector(".directory-header");
 	dirHeader.parentNode.insertBefore(this.section, dirHeader);
     
-	if (game.settings.get('swffgUI-cc', 'autoColorFolder')) {
+	if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
 		const dirlist = html[0].querySelector("ol.directory-list");
 		autoColorFolder.AutoColorFolders(0,0,0,150,dirlist.children);
 	}
@@ -163,7 +163,7 @@ Hooks.on("renderJournalDirectory", (app, html, data) => {
 	const dirHeader = html[0].querySelector(".directory-header");
 	dirHeader.parentNode.insertBefore(this.section, dirHeader);
 	
-	if (game.settings.get('swffgUI-cc', 'autoColorFolder')) {
+	if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
 		const dirlist = html[0].querySelector("ol.directory-list");
 		autoColorFolder.AutoColorFolders(-1,51,153,255,dirlist.children);
 	}
@@ -173,7 +173,7 @@ Hooks.on("renderItemDirectory", (app, html, data) => {
 	const dirHeader = html[0].querySelector(".directory-header");
 	dirHeader.parentNode.insertBefore(this.section, dirHeader);
 	
-	if (game.settings.get('swffgUI-cc', 'autoColorFolder')) {
+	if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
 		const dirlist = html[0].querySelector("ol.directory-list");
 		autoColorFolder.AutoColorFolders(-1,-1,50,255,dirlist.children);
 	}	
