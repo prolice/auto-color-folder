@@ -1,4 +1,3 @@
-
 ## Auto Color Folder Module
 * **Licences**:
 
@@ -9,13 +8,34 @@
 * **Foundry VTT Compatibility**: ![](https://img.shields.io/badge/Foundry-v0.8.9-informational)
 
 * **System Compatibility**: All
-* **Download**: ![Forge installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2FswffgUI-cc)![the latest version](https://img.shields.io/github/downloads/prolice/swffgUI-cc/latest/total) 
+* **Download**: ![Forge installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2FAutoColorFolder)![the latest version](https://img.shields.io/github/downloads/prolice/AutoColorFolder/latest/total) 
  
 ### Link(s) to Module
 * [https://github.com/prolice/auto-color-folder](https://github.com/prolice/auto-color-folder)
 
 ### Description 
-A little module to help you organize by color your world in Foundry VTT
+A simple module to help you organize by color your directories in Foundry VTT
+
+### How to use it
+![](https://raw.githubusercontent.com/prolice/auto-color-folder/release/screenshots/ModuleSettings.png)
+
+There are three modes to manage your folders colors:
+1. Pre-define color by category.
+2. Color based on the first letter.
+3. Color based on the first number.
+
+## PRE DEFINED COLOR
+You can choose 4 differents colors for Actor, Scene, Journal and Item folders.
+The color will be applied only on the first level of folder. It will be applied has a gradient variation to the gray (for the moment).
+
+##BASED ON THE FIRST LETTER
+If the first character is not a letter, no color will be applied and the intial color stay put.
+The first character is a letter, so a color will be affected to the folder base on that letter.
+A .. Z, 26 different colors has been designed.
+
+##BASED ON THE FIRST NUMBER
+It is the same process than the "based on the first letter" process.
+1..9,0, 10 different colors has been designed by every number.
 
 ## Installation
 ### Auto install Method (recommended)
