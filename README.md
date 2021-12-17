@@ -24,16 +24,16 @@ There are three modes to manage your folders colors:
 2. Color based on the first letter.
 3. Color based on the first number.
 
-## PRE DEFINED COLOR
+# PRE DEFINED COLOR
 You can choose 4 differents colors for Actor, Scene, Journal and Item folders.
 The color will be applied only on the first level of folder. It will be applied has a gradient variation to the gray (for the moment).
 
-##BASED ON THE FIRST LETTER
+# BASED ON THE FIRST LETTER
 If the first character is not a letter, no color will be applied and the intial color stay put.
 The first character is a letter, so a color will be affected to the folder base on that letter.
 A .. Z, 26 different colors has been designed.
 
-##BASED ON THE FIRST NUMBER
+# BASED ON THE FIRST NUMBER
 It is the same process than the "based on the first letter" process.
 1..9,0, 10 different colors has been designed by every number.
 
