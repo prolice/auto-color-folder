@@ -1,5 +1,10 @@
 {
   "AUTOCOLORFOLDER.autocolorfolder": "Coloriser mes dossiers en dégradé.",
   "AUTOCOLORFOLDER.autocolorfolderHint": "Permet de coloriser les dossiers Acteurs, Scènes, ... avec un dégradé de couleur unique",
-  "AUTOCOLORFOLDER.colorPicker": "Sélecteur de couleur..."
+  "AUTOCOLORFOLDER.colorPicker": "Sélecteur de couleur...",
+    "AUTOCOLORFOLDER.selectColorMode": "Sélectionnez votre mode de colorisation automatique",
+  "AUTOCOLORFOLDER.selectColorModeHint": "Trois modes sont disponibles pour une meilleure gestion de vos dossiers",
+  "AUTOCOLORFOLDER.options.colormode.choices.0": "Couleurs pré-définies par catégorie.",
+  "AUTOCOLORFOLDER.options.colormode.choices.1": "Colorisation en fonction de la lettre initiale",
+  "AUTOCOLORFOLDER.options.colormode.choices.2": "Colorisation en fonction du nombre initial"
 }

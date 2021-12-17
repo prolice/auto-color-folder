@@ -10,7 +10,7 @@
 			"discord": "Prolice#9101"
 		}
 	],
-  "esmodules": ["./lib/colorsettings/colorSetting.js"],
+  "esmodules": [],
   "styles": [ ".css/autoColorFolder.css" ],
   "packs": [],
   "scripts": ["./autoColorFolder.js"],

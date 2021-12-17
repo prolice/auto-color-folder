@@ -1,5 +1,12 @@
 {
   "AUTOCOLORFOLDER.autocolorfolder": "Force gradient folder color.",
   "AUTOCOLORFOLDER.autocolorfolderHint": "Colorize folders (level#1) with a single gradient color",
-  "AUTOCOLORFOLDER.colorPicker": "Color Picker"
+  "AUTOCOLORFOLDER.colorPicker": "Color Picker",
+  "AUTOCOLORFOLDER.selectColorMode": "Select your auto color mode",
+  "AUTOCOLORFOLDER.selectColorModeHint": "Three modes are available to colorize your folders for a better management",
+  "AUTOCOLORFOLDER.options.colormode.choices.0": "Pre-Defined colors by category",
+  "AUTOCOLORFOLDER.options.colormode.choices.1": "Colors by initial letter",
+  "AUTOCOLORFOLDER.options.colormode.choices.2": "Colors by initial number"
 }
+
+

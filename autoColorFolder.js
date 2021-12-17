@@ -1,3 +1,8 @@
+const ColorMode = {
+    DEFINED: 0,
+    INITIALLETTER: 1,
+	INITIALNUMBER:2,
+};
 
 class autoColorFolder {
 	
@@ -26,7 +31,7 @@ class autoColorFolder {
             default: false,
             type: Boolean,
         });
-
+		
     }
 		
 	static interpolateColor(color1, color2, factor) {
@@ -95,6 +100,20 @@ class autoColorFolder {
 	  return arr;
 	}
 	
+	static numberPosition(text) {
+	  text.split(' ').join('');
+	  var chari = "";
+	  var arr = [];
+	  var numbers = "1234567890".split('');
+	  for(var i = 0; i < text.length; i++){
+		chari = text.charAt(i).toLowerCase();
+		if(numbers.indexOf(chari) > -1){
+		  arr.push(numbers.indexOf(chari));
+		}
+	  }
+	  return arr;
+	}
+	
 	static ColorFoldersByInitialLetter (htmlarray){
 		for(const dirItem of htmlarray){
 			if (dirItem.children[0].attributes.style){
@@ -114,15 +133,69 @@ class autoColorFolder {
 		
 		return;
 	}
+	
+	static ColorFoldersByInitialNumber (htmlarray){
+		for(const dirItem of htmlarray){
+			if (dirItem.children[0].attributes.style){
+				let lowerCaseTitle = dirItem.children[0].querySelector('h3').textContent[0].toLowerCase();
+				if (isNaN(lowerCaseTitle)) continue;
+				let letterCode = autoColorFolder.numberPosition(lowerCaseTitle);
+				let rgbColorRange = 360;
+				let letterBasisColor = (rgbColorRange / 10 /*Number of numbers*/);
+				let strLetterBasisColor = 0;
+				if (letterCode.length > 0)
+					strLetterBasisColor =Math.floor(((letterCode[0]) * letterBasisColor));
+				dirItem.children[0].attributes.style.nodeValue = 'background-color: hsl('+strLetterBasisColor+',90%,40%,0.4)';
+			}
+		}
+		return;
+	}
+	
+	static RedefineColorFolder(html,category){
+		let actorStartColor = game.settings.get("autoColorFolder", category+"DirectoryMainColor").slice(0, -2); // Returns color code, eg: "#000000ff"
+		let rgbActorStartColor = PIXI.utils.hex2rgb(PIXI.utils.string2hex(actorStartColor));
+		if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
+			let state = Number(game.settings.get("autoColorFolder", "selectColorMode"));
+			const dirlist = html[0].querySelector("ol.directory-list");
+			switch(state){
+				case ColorMode.DEFINED:
+					autoColorFolder.AutoColorFolders(rgbActorStartColor[0]*255,rgbActorStartColor[1]*255,rgbActorStartColor[2]*255,255,dirlist.children);
+					break;
+				case ColorMode.INITIALLETTER:
+					autoColorFolder.ColorFoldersByInitialLetter(dirlist.children);
+					break;
+				case ColorMode.INITIALNUMBER:
+					autoColorFolder.ColorFoldersByInitialNumber(dirlist.children);
+					break;
+				default:
+					console.log('[AUTO-COLOR-FOLDER] Something went wrong [$state] does not exists in fonts choices (in AutoColorFolder module)');
+			}
+		}
+	}
 
 }
-
-
 
 Hooks.once("init", async function () {
 	// TURN ON OR OFF HOOK DEBUGGING
     CONFIG.debug.hooks = false;
 	
+	game.settings.register("autoColorFolder", "selectColorMode", {
+            name: game.i18n.localize("AUTOCOLORFOLDER.selectColorMode"),
+            hint: game.i18n.localize("AUTOCOLORFOLDER.selectColorModeHint"),
+            scope: "client",
+            config: true,
+            default: 0,
+            type: Number,
+			choices: {
+				0: "AUTOCOLORFOLDER.options.colormode.choices.0",
+				1: "AUTOCOLORFOLDER.options.colormode.choices.1",
+				2: "AUTOCOLORFOLDER.options.colormode.choices.2"
+			},
+			onChange: (value) => {
+				location.reload();
+			}
+        });
+
 	game.settings.register('autoColorFolder', 'autoColorFolder', {
 		name: game.i18n.localize('AUTOCOLORFOLDER.autocolorfolder'),
 		hint: game.i18n.localize('AUTOCOLORFOLDER.autocolorfolderHint'),
@@ -191,49 +264,19 @@ Hooks.on("ready", () => {
 });
 
 Hooks.on("renderActorDirectory", (app, html, data) => {
-	let actorStartColor = game.settings.get("autoColorFolder", "actorDirectoryMainColor").slice(0, -2); // Returns color code, eg: "#000000ff"
-	let rgbActorStartColor = PIXI.utils.hex2rgb(PIXI.utils.string2hex(actorStartColor));
-	
-	/*if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
-		const dirlist = html[0].querySelector("ol.directory-list");
-		autoColorFolder.AutoColorFolders(rgbActorStartColor[0]*255,rgbActorStartColor[1]*255,rgbActorStartColor[2]*255,255,dirlist.children);
-	}*/
-	const dirlist = html[0].querySelector("ol.directory-list");
-	autoColorFolder.ColorFoldersByInitialLetter(dirlist.children);
-
+	autoColorFolder.RedefineColorFolder(html,"actor");
 });
 
 Hooks.on("renderSceneDirectory", (app, html, data) => {
-	let actorStartColor = game.settings.get("autoColorFolder", "sceneDirectoryMainColor").slice(0, -2); // Returns color code, eg: "#000000ff"
-	let rgbActorStartColor = PIXI.utils.hex2rgb(PIXI.utils.string2hex(actorStartColor));
-	
-	if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
-		const dirlist = html[0].querySelector("ol.directory-list");
-		autoColorFolder.AutoColorFolders(rgbActorStartColor[0]*255,rgbActorStartColor[1]*255,rgbActorStartColor[2]*255,255,dirlist.children);
-		//autoColorFolder.AutoColorFolders(0,0,0,150,dirlist.children);
-	}
+	autoColorFolder.RedefineColorFolder(html,"scene");
 });
 
 Hooks.on("renderJournalDirectory", (app, html, data) => {
-	let actorStartColor = game.settings.get("autoColorFolder", "journalDirectoryMainColor").slice(0, -2); // Returns color code, eg: "#000000ff"
-	let rgbActorStartColor = PIXI.utils.hex2rgb(PIXI.utils.string2hex(actorStartColor));
-	
-	if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
-		const dirlist = html[0].querySelector("ol.directory-list");
-		autoColorFolder.AutoColorFolders(rgbActorStartColor[0]*255,rgbActorStartColor[1]*255,rgbActorStartColor[2]*255,255,dirlist.children);
-		//autoColorFolder.AutoColorFolders(0,0,0,150,dirlist.children);
-	}
+	autoColorFolder.RedefineColorFolder(html,"journal");
 });
 
 Hooks.on("renderItemDirectory", (app, html, data) => {
-	let actorStartColor = game.settings.get("autoColorFolder", "itemDirectoryMainColor").slice(0, -2); // Returns color code, eg: "#000000ff"
-	let rgbActorStartColor = PIXI.utils.hex2rgb(PIXI.utils.string2hex(actorStartColor));
-	
-	if (game.settings.get('autoColorFolder', 'autoColorFolder')) {
-		const dirlist = html[0].querySelector("ol.directory-list");
-		autoColorFolder.AutoColorFolders(rgbActorStartColor[0]*255,rgbActorStartColor[1]*255,rgbActorStartColor[2]*255,255,dirlist.children);
-		//autoColorFolder.AutoColorFolders(0,0,0,150,dirlist.children);
-	}
+	autoColorFolder.RedefineColorFolder(html,"item");
 });
 
 
