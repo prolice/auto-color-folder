@@ -1,8 +1,8 @@
 {
   "name": "autoColorFolder",
   "title": "Auto Colorize Folder",
-  "description": "Auto Colorize Folder module 0.0.1",
-  "version": "0.0.1",
+  "description": "Auto Colorize Folder module 0.0.2",
+  "version": "0.0.2",
   "author": "Prolice",
   "authors": [
 		{
@@ -35,14 +35,14 @@
     ],
   "socket": false,
   "minimumCoreVersion": "0.8.9",
-  "compatibleCoreVersion": "0.8.9",
+  "compatibleCoreVersion": "9",
   "flags": {},
   "bugs": "https://github.com/prolice/auto-color-folder/issues",
   "url": "https://github.com/prolice/auto-color-folder/",
   "readme": "https://github.com/prolice/auto-color-folder/blob/release/README.md",
   "changelog": "https://github.com/prolice/auto-color-folder/blob/release/changelog.md",
   "manifest": "https://raw.githubusercontent.com/prolice/auto-color-folder/release/module.json",
-  "download": "https://github.com/prolice/auto-color-folder/archive/refs/tags/v0.0.1.zip",
+  "download": "https://github.com/prolice/auto-color-folder/archive/refs/tags/v0.0.2.zip",
   "flags": {
 		"allowBugReporter": true
 	},
