@@ -73,12 +73,28 @@ class autoColorFolder {
 		if (!boolRed)red = 0;
 		if (!boolGreen)green = 0;
 		if (!boolBlue)blue = 0;
-		let colorRatioRed = (max-red) / (htmlarray.length-1);
-		let colorRatioGreen = (max-green) / (htmlarray.length-1);
-		let colorRatioBlue = (max-blue) / (htmlarray.length-1);
+		let dirCount = 0;
+		
 		for(const dirItem of htmlarray){
-			if (dirItem.children[0].attributes.style)
+			if (dirItem.classList.contains('folder'))
+				dirCount++;
+		}
+			
+		let colorRatioRed = (max-red) / (dirCount);
+		let colorRatioGreen = (max-green) / (dirCount);
+		let colorRatioBlue = (max-blue) / (dirCount);
+		
+		for(const dirItem of htmlarray){
+			if (dirItem.classList.contains('folder'))
+				dirItem.children[0].style.backgroundColor = 'rgb('+red+','+green+','+blue+',0.5)';
+			/*if (dirItem.children[0].attributes.style)
 				dirItem.children[0].attributes.style.nodeValue = 'background-color: rgb('+red+','+green+','+blue+',0.5)';
+			else 
+			{
+			    const style = document.createElement('style');
+				style.nodeValue = 'background-color: rgb('+red+','+green+','+blue+',0.5)';	
+				dirItem.children[0].appendChild(style);
+			}*/
 			if (boolRed) red = red + colorRatioRed;
 			if (boolGreen) green = green + colorRatioGreen;
 			if (boolBlue) blue = blue + colorRatioBlue;
@@ -116,7 +132,7 @@ class autoColorFolder {
 	
 	static ColorFoldersByInitialLetter (htmlarray){
 		for(const dirItem of htmlarray){
-			if (dirItem.children[0].attributes.style){
+			if (dirItem.classList.contains('folder')){
 				//let letterCode = dirItem.children[0].querySelector('h3').textContent[0].charCodeAt(0);
 				let lowerCaseTitle = dirItem.children[0].querySelector('h3').textContent[0].toLowerCase();
 				let letterCode = autoColorFolder.alphabetPosition(lowerCaseTitle);
@@ -127,7 +143,8 @@ class autoColorFolder {
 					strLetterBasisColor = autoColorFolder.LightenDarkenColor(Math.floor(((letterCode[0]-1) * letterBasisColor)).toString(16),20);
 				//let strLetterBasisColor = PIXI.utils.string2hex(letterBasisColor);
 				//dirItem.children[0].attributes.style.nodeValue = 'background-color: rgb('+letterCode+',0,0,0.5)';
-				dirItem.children[0].attributes.style.nodeValue = 'background-color: #'+strLetterBasisColor+'80';
+				//dirItem.children[0].attributes.style.nodeValue = 'background-color: #'+strLetterBasisColor+'80';
+				dirItem.children[0].style.backgroundColor = '#'+strLetterBasisColor+'80';
 			}
 		}
 		
@@ -136,7 +153,7 @@ class autoColorFolder {
 	
 	static ColorFoldersByInitialNumber (htmlarray){
 		for(const dirItem of htmlarray){
-			if (dirItem.children[0].attributes.style){
+			if (dirItem.classList.contains('folder')){
 				let lowerCaseTitle = dirItem.children[0].querySelector('h3').textContent[0].toLowerCase();
 				if (isNaN(lowerCaseTitle)) continue;
 				let letterCode = autoColorFolder.numberPosition(lowerCaseTitle);
@@ -145,7 +162,8 @@ class autoColorFolder {
 				let strLetterBasisColor = 0;
 				if (letterCode.length > 0)
 					strLetterBasisColor =Math.floor(((letterCode[0]) * letterBasisColor));
-				dirItem.children[0].attributes.style.nodeValue = 'background-color: hsl('+strLetterBasisColor+',90%,40%,0.4)';
+				//dirItem.children[0].attributes.style.nodeValue = 'background-color: hsl('+strLetterBasisColor+',90%,40%,0.4)';
+				dirItem.children[0].style.backgroundColor = 'hsl('+strLetterBasisColor+',90%,40%,0.4)';
 			}
 		}
 		return;
