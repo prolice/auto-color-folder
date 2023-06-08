@@ -1,5 +1,8 @@
 ## Release Notes:
 
+**Version [1.1.0]**
+* Test compatibility FoundryVTT version 11
+
 **Version [1.0.0]**
 * Test compatibility FoundryVTT version 10
 

@@ -5,11 +5,11 @@
 ![MIT LICENSE](https://raw.githubusercontent.com/prolice/auto-color-folder/release/LICENSE)
 
 * **Author**: Prolice#9101
-* **Version**: ![](https://img.shields.io/badge/auto-color-folder-v1.0.0-green)
-* **Foundry VTT Compatibility**: ![](https://img.shields.io/badge/Foundry-v10-informational)
+* **Version**: ![](https://img.shields.io/badge/auto-color-folder-v1.1.0-green)
+* **Foundry VTT Compatibility**: ![](https://img.shields.io/badge/Foundry-v11-informational)
 
 * **System Compatibility**: All
-* **Download**: ![Forge installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2Fauto-color-folder)![the latest version](https://img.shields.io/github/downloads/prolice/auto-color-folder/latest/total) 
+* **Download**: ![Forge installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2FautoColorFolder)![the latest version](https://img.shields.io/github/downloads/prolice/auto-color-folder/latest/total) 
  
 ### Link(s) to Module
 * [https://github.com/prolice/auto-color-folder](https://github.com/prolice/auto-color-folder)
