@@ -2,9 +2,20 @@
   "AUTOCOLORFOLDER.autocolorfolder": "Coloriser mes dossiers en dégradé.",
   "AUTOCOLORFOLDER.autocolorfolderHint": "Permet de coloriser les dossiers Acteurs, Scènes, ... avec un dégradé de couleur unique",
   "AUTOCOLORFOLDER.colorPicker": "Sélecteur de couleur...",
-    "AUTOCOLORFOLDER.selectColorMode": "Sélectionnez votre mode de colorisation automatique",
+  "AUTOCOLORFOLDER.selectColorMode": "Sélectionnez votre mode de colorisation automatique",
   "AUTOCOLORFOLDER.selectColorModeHint": "Trois modes sont disponibles pour une meilleure gestion de vos dossiers",
   "AUTOCOLORFOLDER.options.colormode.choices.0": "Couleurs pré-définies par catégorie.",
   "AUTOCOLORFOLDER.options.colormode.choices.1": "Colorisation en fonction de la lettre initiale",
-  "AUTOCOLORFOLDER.options.colormode.choices.2": "Colorisation en fonction du nombre initial"
+  "AUTOCOLORFOLDER.options.colormode.choices.2": "Colorisation en fonction du nombre initial",
+  "AUTOCOLORFOLDER.options.colorselector.sceneTitle": "Dossier des Scènes, couleur de départ",
+  "AUTOCOLORFOLDER.options.colorselector.sceneDescription": "Définir la couleur de départ pour la couleur des dossiers 'Scènes'",
+  "AUTOCOLORFOLDER.options.colorselector.actorTitle": "Dossier des Acteurs, couleur de départ",
+  "AUTOCOLORFOLDER.options.colorselector.actorDescription": "Définir la couleur de départ pour la couleur des dossiers 'Acteurs'",
+  "AUTOCOLORFOLDER.options.colorselector.itemTitle": "Dossier des Objets, couleur de départ",
+  "AUTOCOLORFOLDER.options.colorselector.itemDescription": "Définir la couleur de départ pour la couleur des dossiers 'Objets'",
+  "AUTOCOLORFOLDER.options.colorselector.journalTitle": "Dossier des Journaux, couleur de départ",
+  "AUTOCOLORFOLDER.options.colorselector.journalDescription": "Définir la couleur de départ pour la couleur des dossiers 'Journaux'",
+  "AUTOCOLORFOLDER.options.colorselector.compendiumTitle": "Dossier des Compendiums, couleur de départ",
+  "AUTOCOLORFOLDER.options.colorselector.compendiumDescription": "Définir la couleur de départ pour la couleur des dossiers 'Compendiums'"
+  
 }

@@ -5,7 +5,7 @@
 ![MIT LICENSE](https://raw.githubusercontent.com/prolice/auto-color-folder/release/LICENSE)
 
 * **Author**: Prolice#9101
-* **Version**: ![](https://img.shields.io/badge/auto-color-folder-v1.1.0-green)
+* **Version**: ![](https://img.shields.io/badge/auto-color-folder-v1.2.0-green)
 * **Foundry VTT Compatibility**: ![](https://img.shields.io/badge/Foundry-v11-informational)
 
 * **System Compatibility**: All

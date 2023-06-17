@@ -227,8 +227,8 @@ Hooks.once("init", async function () {
 	});	
 	
 	new window.Ardittristan.ColorSetting("autoColorFolder", "sceneDirectoryMainColor", {
-		name: "Scene Directory Start Color",           // The name of the setting in the settings menu
-		hint: "Define start color on scene directories for gradient.",        // A description of the registered setting and its behavior
+		name: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.sceneTitle'),        // The name of the setting in the settings menu
+		hint: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.sceneDescription'),        // A description of the registered setting and its behavior
 		label: game.i18n.localize('AUTOCOLORFOLDER.colorPicker'),              // The text label used in the button
 		restricted: false,                  // Restrict this setting to gamemaster only?
 		defaultColor: "#000000FF",          // The default color of the setting
@@ -238,8 +238,8 @@ Hooks.once("init", async function () {
 	});		
 
 	new window.Ardittristan.ColorSetting("autoColorFolder", "actorDirectoryMainColor", {
-		name: "Actor Directory Start Color",           // The name of the setting in the settings menu
-		hint: "Define start color on actor directories for gradient.",        // A description of the registered setting and its behavior
+		name: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.actorTitle'),        // The name of the setting in the settings menu
+		hint: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.actorDescription'),        // A description of the registered setting and its behavior
 		label: game.i18n.localize('AUTOCOLORFOLDER.colorPicker'),              // The text label used in the button
 		restricted: false,                  // Restrict this setting to gamemaster only?
 		defaultColor: "#640000FF",          // The default color of the setting
@@ -249,8 +249,8 @@ Hooks.once("init", async function () {
 	});
 	
 	new window.Ardittristan.ColorSetting("autoColorFolder", "itemDirectoryMainColor", {
-		name: "Item Directory Start Color",           // The name of the setting in the settings menu
-		hint: "Define start color on item directories for gradient.",        // A description of the registered setting and its behavior
+		name: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.itemTitle'),        // The name of the setting in the settings menu
+		hint: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.itemDescription'),        // A description of the registered settiregistered setting and its behavior
 		label: game.i18n.localize('AUTOCOLORFOLDER.colorPicker'),              // The text label used in the button
 		restricted: false,                  // Restrict this setting to gamemaster only?
 		defaultColor: "#000032FF",          // The default color of the setting
@@ -260,14 +260,25 @@ Hooks.once("init", async function () {
 	});		
 	
 	new window.Ardittristan.ColorSetting("autoColorFolder", "journalDirectoryMainColor", {
-		name: "Journal Directory Start Color",           // The name of the setting in the settings menu
-		hint: "Define start color on journal directories for gradient.",        // A description of the registered setting and its behavior
+		name: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.journalTitle'),        // The name of the setting in the settings menu
+		hint: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.journalDescription'),        // A description of the registered settiregistered setting and its behavior
 		label: game.i18n.localize('AUTOCOLORFOLDER.colorPicker'),              // The text label used in the button
 		restricted: false,                  // Restrict this setting to gamemaster only?
 		defaultColor: "#003399FF",          // The default color of the setting
 		scope: "client",                    // The scope of the setting
 		onChange: (value) => {location.reload();},             // A callback function which triggers when the setting is changed
 		insertAfter: "autoColorFolder.itemDirectoryMainColor"
+	});
+	
+	new window.Ardittristan.ColorSetting("autoColorFolder", "compendiumDirectoryMainColor", {
+		name: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.compendiumTitle'),        // The name of the setting in the settings menu
+		hint: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.compendiumDescription'),        // A description of the registered settiregistered setting and its behavior
+		label: game.i18n.localize('AUTOCOLORFOLDER.colorPicker'),              // The text label used in the button
+		restricted: false,                  // Restrict this setting to gamemaster only?
+		defaultColor: "#003399FF",          // The default color of the setting
+		scope: "client",                    // The scope of the setting
+		onChange: (value) => {location.reload();},             // A callback function which triggers when the setting is changed
+		insertAfter: "autoColorFolder.journalDirectoryMainColor"
 	});
 });
 
@@ -295,6 +306,10 @@ Hooks.on("renderJournalDirectory", (app, html, data) => {
 
 Hooks.on("renderItemDirectory", (app, html, data) => {
 	autoColorFolder.RedefineColorFolder(html,"item");
+});
+
+Hooks.on("renderCompendiumDirectory", (app, html, data) => {
+	autoColorFolder.RedefineColorFolder(html,"compendium");
 });
 
 

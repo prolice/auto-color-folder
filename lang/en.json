@@ -6,7 +6,17 @@
   "AUTOCOLORFOLDER.selectColorModeHint": "Three modes are available to colorize your folders for a better management",
   "AUTOCOLORFOLDER.options.colormode.choices.0": "Pre-Defined colors by category",
   "AUTOCOLORFOLDER.options.colormode.choices.1": "Colors by initial letter",
-  "AUTOCOLORFOLDER.options.colormode.choices.2": "Colors by initial number"
+  "AUTOCOLORFOLDER.options.colormode.choices.2": "Colors by initial number",
+  "AUTOCOLORFOLDER.options.colorselector.sceneTitle": "Scene Directory Start Color",
+  "AUTOCOLORFOLDER.options.colorselector.sceneDescription": "Define start color on scene directories for gradient",
+  "AUTOCOLORFOLDER.options.colorselector.actorTitle": "Actor Directory Start Color",
+  "AUTOCOLORFOLDER.options.colorselector.actorDescription": "Define start color on actor directories for gradient",
+  "AUTOCOLORFOLDER.options.colorselector.itemTitle": "Item Directory Start Color",
+  "AUTOCOLORFOLDER.options.colorselector.itemDescription": "Define start color on item directories for gradient",
+  "AUTOCOLORFOLDER.options.colorselector.journalTitle": "Journal Directory Start Color",
+  "AUTOCOLORFOLDER.options.colorselector.journalDescription": "Define start color on journal directories for gradient",
+  "AUTOCOLORFOLDER.options.colorselector.compendiumTitle": "Compendium Directory Start Color",
+  "AUTOCOLORFOLDER.options.colorselector.compendiumDescription": "Define start color on compendium directories for gradient"
 }
 
 
