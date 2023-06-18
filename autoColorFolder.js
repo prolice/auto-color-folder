@@ -280,6 +280,39 @@ Hooks.once("init", async function () {
 		onChange: (value) => {location.reload();},             // A callback function which triggers when the setting is changed
 		insertAfter: "autoColorFolder.journalDirectoryMainColor"
 	});
+	
+	new window.Ardittristan.ColorSetting("autoColorFolder", "rollTableDirectoryMainColor", {
+		name: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.rollTableTitle'),        // The name of the setting in the settings menu
+		hint: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.rollTableDescription'),        // A description of the registered settiregistered setting and its behavior
+		label: game.i18n.localize('AUTOCOLORFOLDER.colorPicker'),              // The text label used in the button
+		restricted: false,                  // Restrict this setting to gamemaster only?
+		defaultColor: "#003399FF",          // The default color of the setting
+		scope: "client",                    // The scope of the setting
+		onChange: (value) => {location.reload();},             // A callback function which triggers when the setting is changed
+		insertAfter: "autoColorFolder.compendiumDirectoryMainColor"
+	});
+	
+	new window.Ardittristan.ColorSetting("autoColorFolder", "playlistDirectoryMainColor", {
+		name: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.playlistTitle'),        // The name of the setting in the settings menu
+		hint: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.playlistDescription'),        // A description of the registered settiregistered setting and its behavior
+		label: game.i18n.localize('AUTOCOLORFOLDER.colorPicker'),              // The text label used in the button
+		restricted: false,                  // Restrict this setting to gamemaster only?
+		defaultColor: "#003399FF",          // The default color of the setting
+		scope: "client",                    // The scope of the setting
+		onChange: (value) => {location.reload();},             // A callback function which triggers when the setting is changed
+		insertAfter: "autoColorFolder.rollTableDirectoryMainColor"
+	});
+	
+	new window.Ardittristan.ColorSetting("autoColorFolder", "cardsDirectoryMainColor", {
+		name: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.cardsTitle'),        // The name of the setting in the settings menu
+		hint: game.i18n.localize('AUTOCOLORFOLDER.options.colorselector.cardsDescription'),        // A description of the registered settiregistered setting and its behavior
+		label: game.i18n.localize('AUTOCOLORFOLDER.colorPicker'),              // The text label used in the button
+		restricted: false,                  // Restrict this setting to gamemaster only?
+		defaultColor: "#003399FF",          // The default color of the setting
+		scope: "client",                    // The scope of the setting
+		onChange: (value) => {location.reload();},             // A callback function which triggers when the setting is changed
+		insertAfter: "autoColorFolder.playlistDirectoryMainColor"
+	});
 });
 
 Hooks.on("ready", () => {
@@ -312,5 +345,19 @@ Hooks.on("renderCompendiumDirectory", (app, html, data) => {
 	autoColorFolder.RedefineColorFolder(html,"compendium");
 });
 
+Hooks.on("renderCompendium", (app, html, data) => {
+	autoColorFolder.RedefineColorFolder(html,"compendium");
+});
 
+Hooks.on("renderPlaylistDirectory", (app, html, data) => {
+	autoColorFolder.RedefineColorFolder(html,"playlist");
+});
+
+Hooks.on("renderRollTableDirectory", (app, html, data) => {
+	autoColorFolder.RedefineColorFolder(html,"rollTable");
+});
+
+Hooks.on("renderCardsDirectory", (app, html, data) => {
+	autoColorFolder.RedefineColorFolder(html,"cards");
+});
 

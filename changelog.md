@@ -1,5 +1,10 @@
 ## Release Notes:
 
+**Version [1.3.0]**
+* Add auto color on Playlist folders
+* Add auto color on Rolltable folders
+* Add auto color on Compendium Browser folders
+
 **Version [1.2.1]**
 * Fix installation on old versions of FoundryVTT (before 10)
 

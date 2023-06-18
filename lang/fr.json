@@ -16,6 +16,13 @@
   "AUTOCOLORFOLDER.options.colorselector.journalTitle": "Dossier des Journaux, couleur de départ",
   "AUTOCOLORFOLDER.options.colorselector.journalDescription": "Définir la couleur de départ pour la couleur des dossiers 'Journaux'",
   "AUTOCOLORFOLDER.options.colorselector.compendiumTitle": "Dossier des Compendiums, couleur de départ",
-  "AUTOCOLORFOLDER.options.colorselector.compendiumDescription": "Définir la couleur de départ pour la couleur des dossiers 'Compendiums'"
+  "AUTOCOLORFOLDER.options.colorselector.compendiumDescription": "Définir la couleur de départ pour la couleur des dossiers 'Compendiums'. Cette couleur est également utilisée dans le navigateur de Compendium",
+  "AUTOCOLORFOLDER.options.colorselector.rollTableTitle": "Dossier des Tables, couleur de départ",
+  "AUTOCOLORFOLDER.options.colorselector.rollTableDescription": "Définir la couleur de départ pour la couleur des dossiers 'Tables'",
+  "AUTOCOLORFOLDER.options.colorselector.playlistTitle": "Dossier des Playlist, couleur de départ",
+  "AUTOCOLORFOLDER.options.colorselector.playlistDescription": "Définir la couleur de départ pour la couleur des dossiers 'Playlist'",
+  "AUTOCOLORFOLDER.options.colorselector.cardsTitle":  "Dossier des Cartes, couleur de départ",
+  "AUTOCOLORFOLDER.options.colorselector.cardsDescription": "Définir la couleur de départ pour la couleur des dossiers 'Cartes'"
+}
   
 }

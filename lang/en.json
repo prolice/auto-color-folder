@@ -16,7 +16,13 @@
   "AUTOCOLORFOLDER.options.colorselector.journalTitle": "Journal Directory Start Color",
   "AUTOCOLORFOLDER.options.colorselector.journalDescription": "Define start color on journal directories for gradient",
   "AUTOCOLORFOLDER.options.colorselector.compendiumTitle": "Compendium Directory Start Color",
-  "AUTOCOLORFOLDER.options.colorselector.compendiumDescription": "Define start color on compendium directories for gradient"
+  "AUTOCOLORFOLDER.options.colorselector.compendiumDescription": "Define start color on compendium directories for gradient. This color is also used on Compendium Browser folders",
+  "AUTOCOLORFOLDER.options.colorselector.rollTableTitle":  "RollTable Directory Start Color",
+  "AUTOCOLORFOLDER.options.colorselector.rollTableDescription": "Define start color on rolltable directories for gradient",
+  "AUTOCOLORFOLDER.options.colorselector.playlistTitle": "Playlist Directory Start Color",
+  "AUTOCOLORFOLDER.options.colorselector.playlistDescription": "Define start color on playlist directories for gradient",
+  "AUTOCOLORFOLDER.options.colorselector.cardsTitle":  "Cards Directory Start Color",
+  "AUTOCOLORFOLDER.options.colorselector.cardsDescription": "Define start color on cards directories for gradient"
 }
 
 
