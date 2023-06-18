@@ -1,5 +1,8 @@
 ## Release Notes:
 
+**Version [1.2.1]**
+* Fix installation on old versions of FoundryVTT (before 10)
+
 **Version [1.2.0]**
 * Add auto color on Compendium folders
 * Add localization for options (start color picker)
