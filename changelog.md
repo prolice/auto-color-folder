@@ -1,4 +1,7 @@
 ## Release Notes:
+**Version [1.3.2]**
+* Add Spanish language
+
 **Version [1.3.1]**
 * Check compatiblity with VTT-11.311
 
