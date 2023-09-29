@@ -1,4 +1,6 @@
 ## Release Notes:
+**Version [1.3.1]**
+* Check compatiblity with VTT-11.311
 
 **Version [1.3.0]**
 * Add auto color on Playlist folders
