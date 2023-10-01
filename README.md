@@ -5,7 +5,7 @@
 ![MIT LICENSE](https://raw.githubusercontent.com/prolice/auto-color-folder/release/LICENSE)
 
 * **Author**: .prolice
-* **Version**: ![](https://img.shields.io/badge/auto-color-folder-v1.3.2-green)
+* **Version**: ![](https://img.shields.io/badge/auto-color-folder-v1.4.0-green)
 * **Foundry VTT Compatibility**: ![](https://img.shields.io/badge/Foundry-v11-informational)
 
 * **System Compatibility**: All
@@ -16,6 +16,7 @@
 
 ### Description 
 A little module to help you organize by color your world in Foundry VTT
+This add a tooltip on the folder to show the color criterias
 
 ## Installation
 ### Auto install Method (recommended)

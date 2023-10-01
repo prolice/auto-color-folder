@@ -1,4 +1,7 @@
 ## Release Notes:
+**Version [1.4.0]**
+* Add tooltip on folder to show color criterias
+
 **Version [1.3.2]**
 * Add Spanish language
 
