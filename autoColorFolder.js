@@ -33,6 +33,26 @@ class autoColorFolder {
         });
 		
     }
+	
+	static setFolderTooltip(folderId, tooltipText) {
+        const folderElement = document.getElementById(folderId);
+        if (folderElement) {
+            folderElement.title = tooltipText;
+        }
+    }
+	
+	// Method to apply folder tooltip information
+	static applyFolderTooltips(htmlarray) {
+        for (const dirItem of htmlarray) {
+            if (dirItem.classList.contains('folder')) {
+                const folderId = dirItem.getAttribute('data-folder-id'); // Assume data-folder-id attribute specifies folder ID
+                const tooltipText = this.getFolderTooltip(folderId); // Implement a method to retrieve tooltip text based on folder ID
+                if (tooltipText) {
+                    dirItem.title = tooltipText;
+                }
+            }
+        }
+    }
 		
 	static interpolateColor(color1, color2, factor) {
 		if (arguments.length < 3) { 
@@ -189,6 +209,9 @@ class autoColorFolder {
 					console.log('[AUTO-COLOR-FOLDER] Something went wrong [$state] does not exists in fonts choices (in AutoColorFolder module)');
 			}
 		}
+		
+		// Apply folder tooltips
+        autoColorFolder.singleton.applyFolderTooltips(dirlist.children);
 	}
 
 }
