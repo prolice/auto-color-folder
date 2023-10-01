@@ -41,12 +41,13 @@ class autoColorFolder {
         }
     }
 	
+		
 	// Method to apply folder tooltip information
-	static applyFolderTooltips(htmlarray) {
+	static applyFolderTooltips(htmlarray, state, startcolor) {
         for (const dirItem of htmlarray) {
             if (dirItem.classList.contains('folder')) {
                 const folderId = dirItem.getAttribute('data-folder-id'); // Assume data-folder-id attribute specifies folder ID
-                const tooltipText = this.getFolderTooltip(folderId); // Implement a method to retrieve tooltip text based on folder ID
+                const tooltipText = "state: "+state+" | startcolor"+startcolor;//this.getFolderTooltip(folderId); // Implement a method to retrieve tooltip text based on folder ID
                 if (tooltipText) {
                     dirItem.title = tooltipText;
                 }
@@ -63,7 +64,7 @@ class autoColorFolder {
 			result[i] = Math.round(result[i] + factor * (color2[i] - color1[i]));
 		}
 		return result;
-	};
+	}
 	// My function to interpolate between two colors completely, returning an array
 	// call --> var colorArray = swffgUIModule.interpolateColors("rgb(255, 0, 0)","rgb(0, 0, 255)",5);
 	
@@ -208,10 +209,9 @@ class autoColorFolder {
 				default:
 					console.log('[AUTO-COLOR-FOLDER] Something went wrong [$state] does not exists in fonts choices (in AutoColorFolder module)');
 			}
+			// Apply folder tooltips
+			autoColorFolder.applyFolderTooltips(dirlist.children, state, actorStartColor);
 		}
-		
-		// Apply folder tooltips
-        autoColorFolder.singleton.applyFolderTooltips(dirlist.children);
 	}
 
 }
