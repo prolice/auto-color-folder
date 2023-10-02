@@ -27,7 +27,7 @@ This add a tooltip on the folder to show the color criterias
 
 ### Manual Method
 * Open the Foundry application and click **"Install Module"** in the **"Add-On Modules"** tab.
-* Paste the following link: https://raw.githubusercontent.com/prolice/auto-color-folder/release/module.json
+* Paste the following link: [https://raw.githubusercontent.com/prolice/auto-color-folder/release/module.json](https://raw.githubusercontent.com/prolice/auto-color-folder/Add-tooltip-cvb/module.json)
 * Click "Install" 
 * Activate the module in your World using **Manage Modules** under the **Game Settings** tab and find Auto Color Folder.
 
