@@ -1,8 +1,6 @@
 
 ## Auto Color Folder Module
-* **Licences**:
-
-![MIT LICENSE](https://raw.githubusercontent.com/prolice/auto-color-folder/release/LICENSE)
+* **Licences**:![MIT LICENSE](https://img.shields.io/github/license/prolice/auto-color-folder)
 
 * **Author**: .prolice
 * **Version**: ![](https://img.shields.io/badge/auto--color--folder-v1.3.2-green)
