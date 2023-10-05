@@ -10,6 +10,8 @@
 
 * **System Compatibility**: All
 * **Download**: ![Forge installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2FautoColorFolder)![the latest version](https://img.shields.io/github/downloads/prolice/auto-color-folder/latest/total) 
+
+* **Download Alpha release**: ![The Alpha Release](https://img.shields.io/github/downloads/prolice/auto-color-folder/v1.4.0-alpha1/total)
  
 ### Link(s) to Module
 * [https://github.com/prolice/auto-color-folder](https://github.com/prolice/auto-color-folder)
