@@ -3,7 +3,7 @@
 * **Licences**:![MIT LICENSE](https://img.shields.io/github/license/prolice/auto-color-folder)
 
 * **Author**: .prolice
-* **Version**: ![](https://img.shields.io/badge/auto--color--folder-v1.3.2-green)
+* **Version**: ![](https://img.shields.io/github/v/release/prolice/auto-color-folder?color=green&label=auto-color-folder)
 * **Foundry VTT Compatibility**: ![](https://img.shields.io/badge/Foundry-v11-informational)
 * **System Compatibility**: All
 * **Repository size**: ![](https://img.shields.io/github/repo-size/prolice/auto-color-folder)
