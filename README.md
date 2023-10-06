@@ -5,8 +5,8 @@
 * **Author**: .prolice
 * **Version**: ![](https://img.shields.io/badge/auto--color--folder-v1.3.2-green)
 * **Foundry VTT Compatibility**: ![](https://img.shields.io/badge/Foundry-v11-informational)
-
 * **System Compatibility**: All
+* **Repository size**: ![](https://img.shields.io/github/repo-size/prolice/auto-color-folder)
 * **Download**: ![Forge installs](https://img.shields.io/badge/dynamic/json?label=Forge%20Installs&query=package.installs&suffix=%25&url=https%3A%2F%2Fforge-vtt.com%2Fapi%2Fbazaar%2Fpackage%2FautoColorFolder)![the latest version](https://img.shields.io/github/downloads/prolice/auto-color-folder/latest/total)
 
 * **Total Download**: ![All Versions](https://img.shields.io/github/downloads/prolice/auto-color-folder/total) 
