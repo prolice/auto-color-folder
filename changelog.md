@@ -1,4 +1,8 @@
 ## Release Notes:
+**Version [1.3.4]**
+* Code refactorized
+* FoundryVTT 11.315 compatibility
+
 **Version [1.3.3]**
 * Check compatiblity with VTT-11.313
 
